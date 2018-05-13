@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <h1 id="page-title">Purchased Coupons</h1>
+  <div class="container-fluid cards-class">
+    <div class="row">
+      <div class="col-md-6 card" *ngFor="let coupon of allPurchasedCoupons">
+        <mat-card  layout-align="center" >
+
+          <!-- card header -->
+          <mat-card-header>
+            <mat-card-title class="coupon-title">
+              {{'title' | translate}} : {{coupon.title}}
+            </mat-card-title>
+
+            <mat-card-subtitle class="coupon-message">
+              {{'message' | translate}} : {{coupon.message}}
+            </mat-card-subtitle>
+          </mat-card-header>
+
+          <!-- card content -->
+          <mat-card-content>
+            <div class="coupon-type">{{'type' | translate}} : {{coupon.type}}</div>
+            <div class="coupon-end-date">{{'endDate' | translate}} : {{coupon.endDate}}</div>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

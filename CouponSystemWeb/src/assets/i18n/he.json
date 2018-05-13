@@ -1,0 +1,59 @@
+{
+    "createCoupon": "יצירת קופון",
+    "viewAllCoupons": "צפייה בכל הקופונים",
+    "viewAllCompanies" : "צפייה בכל בחברות",
+    "createCompany" : "יצירת חברה",
+    "viewAllCustomers" : "צפייה בכל הלקוחות",
+    "createCustomer" : "יצירת לקוח",
+    "viewAllPurchasedCoupons" : "צפייה בכל הקופונים שנקנו",
+    "purchaseCoupon" : "קניית קופון",
+    "companyName" : "שם חברה",
+    "CompanyNameIsRequired" : "שם חברה חובה",
+    "companyPassword" : "סיסמה לחברה",
+    "companyEmail" : "דואר אלקטרוני",
+    "customerName" : "יצירת לקוח",
+    "customerPassword" : "סיסמת לקוח",
+    "id" : "מספר מזהה",
+    "cancel" : "ביטול",
+    "update" : "עדכון",
+    "delete" : "מחיקה",
+    "type" : "סוג",
+    "title" : "כותרת",
+    "startDate" : "תאריך התחלה",
+    "endDate" : "תאריך סיום",
+    "amount" : "קמות",
+    "message" : "הודעה",
+    "price" : "מחיר",
+    "image" : "תמונה",
+    "searchByType" : "חיפוש לפי סוג",
+    "searchByPrice" : "חיפוש לפי מחיר",
+    "searchByDate" : "חיפוש לפי תאריך",
+    "resetTable" : "שחזור טבלה",
+    "purchase" : "קנייה",
+    "companies" : "החברות",
+    "customers" : "הלקוחות",
+    "coupons" : "קופונים",
+    "purchasedCoupons" : "קופונים שנקנו",
+    "logout" : "יציאה",
+    "login" : "כניסה",
+    "language" : "שפה",
+    "UserNameIsRequired" : "חייב שם משתמש",
+    "username" : "שם משתמש",
+    "password" : "סיסמה",
+    "admin" : "מנהל",
+    "company" : "חברה",
+    "customer" : "לקוח",
+    "PasswordIsRequired" : "חייב סיסמה",
+    "EmailIsRequired" : "חייב דואר אלקטרוני",
+    "TitleIsRequired" : "חייב כותרת",
+    "MessageIsRequired" : "חייב הודעה",
+    "ImageIsRequired" : "חייב תמונה"
+
+
+
+
+
+
+
+
+}

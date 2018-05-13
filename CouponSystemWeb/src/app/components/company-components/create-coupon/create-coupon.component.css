@@ -1,0 +1,26 @@
+
+::ng-deep .mat-select-trigger,
+::ng-deep .mat-select-value,
+::ng-deep .mat-input-placeholder
+ {
+  color: black !important;
+}
+
+form
+{
+    text-align: center;
+    margin-top: -10px;
+    font-size: 17px;
+}
+
+h1
+{
+    text-align: center;
+}
+
+#createCoupon
+{
+    max-height: 580px;
+    overflow-y: scroll;
+
+}

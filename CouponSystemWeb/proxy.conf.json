@@ -1,0 +1,23 @@
+{
+    "/admin/*": {
+        "target": "http://localhost:9090",
+        "secure": false
+    },
+    "/company/*": {
+        "target": "http://localhost:9090",
+        "secure": false
+    },
+    "/customer/*": {
+        "target": "http://localhost:9090",
+        "secure": false
+    },
+    "/loginService": {
+        "target": "http://localhost:9090",
+        "secure": false
+    },
+    "/logoutService": {
+        "target": "http://localhost:9090",
+        "secure": false
+    }
+    
+}

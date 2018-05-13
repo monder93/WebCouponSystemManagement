@@ -1,0 +1,17 @@
+.left-div
+{
+    background-color: rgb(25, 25, 26);
+    height: 587px;
+}
+
+.right-div
+{
+    background-color :  rgb(199, 199, 191);
+    height: 587px;
+
+}
+
+body {
+    height: 100%;
+}
+

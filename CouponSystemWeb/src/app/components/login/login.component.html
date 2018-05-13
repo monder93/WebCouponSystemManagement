@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <h1> {{'login' | translate}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="loginForm" method="post" (ngSubmit)="login()" autocomplete="off">
+
+        <div class="form-group">
+          <label for="username" translate>username</label>
+          <input  formControlName="username" id="username" type="text" class="form-control">
+        </div>
+        <div *ngIf="loginForm.get('username').hasError('required') &&  loginForm.get('username').touched "class="alert alert-danger">
+            {{ 'UserNameIsRequired' | translate}}
+      </div>
+
+        <div class="form-group">
+          <label for="password" translate>password</label>
+          <input  formControlName="password" id="password" type="password" class="form-control">
+        </div>
+        <div *ngIf="loginForm.get('password').hasError('required') &&  loginForm.get('password').touched "class="alert alert-danger">
+            {{ 'PasswordIsRequired' | translate}}
+      </div>
+
+        <div class="form-group">
+          <mat-radio-group formControlName="type" id="type" >
+            <mat-radio-button value="admin" >{{'admin' | translate}}</mat-radio-button>
+            <mat-radio-button value="company" >{{'company' | translate}}</mat-radio-button>
+            <mat-radio-button value="customer" >{{'customer' | translate}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
+          SignIn
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

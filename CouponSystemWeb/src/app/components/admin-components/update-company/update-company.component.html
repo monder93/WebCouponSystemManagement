@@ -1,0 +1,43 @@
+<!-- angular material Card 
+card will have title Company : name-of-company 
+details of the company - without the ability to change  , only for password and email 
+2 buttons ,  close and update 
+-->
+
+<form [formGroup]="form" >
+  <h6 mat-dialog-title>{{data.compName}}</h6>
+  <mat-dialog-content>
+    <mat-form-field >
+      {{'id' | translate}} :
+      <input matInput formControlName="id" [ngModel]="data.id" readonly disabled (click)="openSnackBar()"> 
+    </mat-form-field>
+    <span class="glyphicon glyphicon-remove"></span>
+
+    <mat-form-field>
+      {{'companyName' | translate}} :
+      <input matInput formControlName="compName" [ngModel]="data.compName" readonly disabled (click)="openSnackBar()"> 
+    </mat-form-field>
+    <span class="glyphicon glyphicon-remove"></span>
+
+    <mat-form-field>
+        {{'companyPassword' | translate}} :
+      <input matInput formControlName="password" [ngModel]="data.password">
+    </mat-form-field>
+
+    <mat-form-field>
+        {{'companyEmail' | translate}} :
+      <input matInput formControlName="email" [ngModel]="data.email"  readonly disabled (click)="openSnackBar()">
+    </mat-form-field>
+    <span class="glyphicon glyphicon-remove"></span>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div ngPreserveWhitespaces>
+      <button mat-raised-button type="button" class="btn btn-danger btn-md" (click)="onCloseNo()">{{'cancel' | translate}}</button>
+     <!-- <button mat-raised-button type="submit" >update</button>   -->
+     <button mat-button type="button" class="btn btn-info btn-md" [mat-dialog-close]="form.value" >{{'update' | translate}}</button>
+
+
+    </div>
+  </mat-dialog-actions>
+</form>

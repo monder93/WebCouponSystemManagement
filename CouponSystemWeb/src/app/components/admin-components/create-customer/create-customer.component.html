@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <form [formGroup]="createCustomerForm" (ngSubmit)="createCustomer()">
+  
+  
+      <div class="row">
+          <div class="col-md-12">
+            <h1> {{'createCustomer' | translate}}</h1>
+          </div>
+        </div>
+  
+    <div class="row">
+      <!-- customer name form field  -->
+      <div class="form-group">
+        <label for="custName" translate>customerName</label>
+        <input formControlName="custName" id="custName" type="text" class="form-control" autocomplete="off" >
+        <div *ngIf="createCustomerForm.get('custName').hasError('required') && createCustomerForm.get('custName').touched" class="alert alert-danger">
+            {{ 'PasswordIsRequired' | translate}}
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- customer password form field  -->
+      <div class="form-group">
+        <label for="custPassword" translate>customerPassword</label>
+        <input formControlName="password" id="password" type="text" class="form-control" autocomplete="off" >
+        <div *ngIf="createCustomerForm.get('password').hasError('required') && createCustomerForm.get('password').touched" class="alert alert-danger">
+            {{ 'PasswordIsRequired' | translate}}
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn btn-primary" type="submit" [disabled]="!createCustomerForm.valid">
+        {{'createCustomer' | translate}}
+      </button>
+    </div>
+  </form>
+</div>

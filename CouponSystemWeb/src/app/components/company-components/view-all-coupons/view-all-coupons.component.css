@@ -1,0 +1,24 @@
+::ng-deep .mat-select-trigger,
+::ng-deep .mat-select-value,
+::ng-deep .mat-input-placeholder,
+.mat-input-element
+ {
+  color: black !important;
+}
+
+
+div>h1
+{
+    text-align: center;
+}
+
+span
+{
+    color: white;
+}
+
+#viewAllCouponsMatTable
+{
+    height: 300px;
+    overflow-y: scroll;
+}

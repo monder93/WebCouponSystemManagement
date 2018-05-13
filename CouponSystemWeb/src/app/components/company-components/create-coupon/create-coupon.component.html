@@ -1,0 +1,114 @@
+<div class="container-fluid" id="createCoupon">
+  <form [formGroup]="createCouponForm" (ngSubmit)="createCoupon()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h1> {{'createCoupon' | translate}}</h1>
+      </div>
+    </div>
+
+    <!-- coupon title form field  -->
+    <div class="row">
+      <div class="form-group col-md-12 " id="titleDiv">
+        <label for="title">{{'title' | translate}}</label>
+        <input class="form-control" id="title" formControlName="title" type="text" autocomplete="off" >
+        <div *ngIf="createCouponForm.get('title').hasError('required') && createCouponForm.get('title').touched" class="alert alert-danger">
+            {{ 'TitleIsRequired' | translate}}
+      </div>
+      </div>
+    </div>
+
+    <!-- coupon type form field  -->
+    <div class="row">
+      <div class="form-group col-md-4" id="typeDiv">
+        <label for="couponType">{{'type' | translate}}</label>
+        <mat-form-field>
+          <mat-select class="form-control" id="type" formControlName="type" placeholder="Select an option" disableRipple [(value)]="selected" >
+            <mat-option value="RESTURANS">Resturans</mat-option>
+            <mat-option value="ELECTRICITY">Electricity</mat-option>
+            <mat-option value="FOOD">Food</mat-option>
+            <mat-option value="HEALTH">Health</mat-option>
+            <mat-option value="SPORTS">Sports</mat-option>
+            <mat-option value="CAMPING">Camping</mat-option>
+            <mat-option value="TRAVELLING">Travelling</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- coupon startDate form field  -->
+      <div class="form-group col-md-4" id="startDateDiv">
+        <label for="couponStartDate">{{'startDate' | translate}}</label>
+        <mat-form-field>
+          <input matInput class="form-control" id="startDate" formControlName="startDate" [matDatepicker]="dp1" placeholder="choose start Date"
+            disabled readonly >
+          <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+          <mat-datepicker #dp1 disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+      <!-- coupon endDate form field  -->
+      <div class="form-group col-md-4" id="endDateDiv">
+        <label for="couponEndDate">{{'endDate' | translate}}</label>
+        <mat-form-field>
+          <input matInput class="form-control" id="endDate" formControlName="endDate" [matDatepicker]="dp2" placeholder="choose end Date"
+            disabled readonly >
+          <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+          <mat-datepicker #dp2 disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- coupon amount form field  -->
+    <div class="row">
+      <div class="form-group col-md-12" id="amountDiv">
+        <label for="couponAmount">{{'amount' | translate}}</label>
+        <input class="form-control" id="amount" formControlName="amount" type="number" min="1"
+        >
+      </div>
+    </div>
+
+    <!-- coupon message form field  -->
+    <div class="row">
+      <div class="form-group col-md-12" id="messageDiv">
+        <label for="couponMessage">{{'message' | translate}}</label>
+        <input class="form-control" id="message" formControlName="message" type="text" autocomplete="off">
+        <div *ngIf="createCouponForm.get('message').hasError('required') && createCouponForm.get('message').touched" class="alert alert-danger">
+            {{ 'MessageIsRequired' | translate}}
+      </div>
+      </div>
+    </div>
+
+    <!-- coupon price form field  -->
+    <div class="row">
+      <div class="form-group col-md-12" id="priceDiv">
+        <label for="couponPrice">{{'price' | translate}}</label>
+        <input class="form-control" id="price" formControlName="price" type="number" min="1"
+        >
+      </div>
+    </div>
+
+    <!-- coupon image form field  -->
+    <div class="row">
+      <div class="form-group col-md-12" id="imageDiv">
+        <label for="couponImage">{{'image' | translate}}</label>
+        <input class="form-control" id="imageFile" type="file" accept="image/*" (change)="chooseFile($event)"
+        >
+        <input class="form-control" id="image" formControlName="image" type="hidden" [(ngModel)]="image" >
+        <div *ngIf="createCouponForm.get('image').hasError('required')" class="alert alert-danger">
+            {{ 'ImageIsRequired' | translate}}
+      </div>
+      </div>
+    </div>
+
+    <!-- coupon create button form field  -->
+    <div class="row">
+      <div class="form-group col-md-12" id="buttonDiv">
+        <button class="btn btn-primary" [disabled]="!createCouponForm.valid">
+          {{'createCoupon' | translate}}
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

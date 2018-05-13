@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <h1>{{'companies' | translate}} </h1>
+    <div class="row">
+        <div class="col-md-12">
+
+            <mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-star"></span>
+                        {{'id' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let company"> {{company.id}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="compName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-user"></span>
+                        {{'companyName' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let company"> {{company.compName}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="password">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-lock"></span>
+                        {{'companyPassword' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let company"> {{company.password}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-envelope"> </span>
+                        {{'companyEmail' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let company"> {{company.email}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="update">
+                    <mat-header-cell *matHeaderCellDef>
+                        <span class="glyphicon glyphicon-refresh"></span>
+                        {{'update' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let company" (click)="$event.stopPropagation()">
+                        <button mat-button class="btn btn-info btn-md" (click)="openDialog(company)">
+                            <mat-icon>update</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+
+                    <mat-header-cell *matHeaderCellDef>
+                        <span class="glyphicon glyphicon-trash"></span>
+                        {{'delete' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let company" (click)="$event.stopPropagation()">
+                        <button mat-button class="btn btn-danger btn-md" (click)="onDelete(company.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"> </mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+            </mat-table>
+
+            <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[1, 10, 25, 100]">
+            </mat-paginator>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+* 
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+}
+
+#company-sidebar 
+{
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width: 100%;
+    background: #1a1a1a;
+    text-align: center;
+    transform-origin: left;
+    transition: all 400ms ease;
+}
+
+
+#company-sidebar ul li
+{
+    color: #ccc;
+    font-size: 20px;
+    width: 100%;
+    border-bottom: 1px solid #222222;
+    line-height: 50px;
+}

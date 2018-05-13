@@ -1,0 +1,92 @@
+<div class="wrapper">
+    <h1 id="page-title">{{'coupons' | translate}}</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-table #table [dataSource]="dataSource" matSort id="viewAllCouponsMatTable">
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-star"></span>
+                            {{'id' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.id}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="title">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-user"></span>
+                            {{'title' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.title}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="startDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-lock"></span>
+                            {{'startDate' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.startDate}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="endDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-lock"></span>
+                            {{'endDate' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.endDate}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="amount">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-lock"></span>
+                            {{'amount' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.amount}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-envelope"> </span>
+                            {{'type' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.type}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="message">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-lock"></span>
+                            {{'message' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.message}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="price">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <span class="glyphicon glyphicon-lock"></span>
+                            {{'price' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon"> {{coupon.price}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="purchase">
+                        <mat-header-cell *matHeaderCellDef>
+                            <span class="glyphicon glyphicon-plus"></span>
+                            {{'purchase' | translate}}
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let coupon" (click)="$event.stopPropagation()">
+                            <button mat-button class="btn btn-info btn-md" (click)="purchase(coupon)">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"> </mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+                </mat-table>
+
+                <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[1, 10, 25, 100]">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

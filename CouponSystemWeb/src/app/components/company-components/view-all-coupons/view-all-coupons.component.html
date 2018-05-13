@@ -1,0 +1,148 @@
+<div class="container-fluid" id="viewAllCouponsDiv">
+    <h1>{{'coupons' | translate}} </h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4" id="typeSearchDiv">
+                <div class="form-group" id="typeDiv">
+                    <label for="searchByType">{{'searchByType' | translate}}</label>
+                    <mat-form-field>
+                        <mat-select class="form-control" id="typeinput" placeholder="Select an option" disableRipple [(value)]="selected" [(ngModel)]='defaultType'
+                            (change)="searchByType(typeinput.value)" #typeinput>
+                            <mat-option value="RESTURANS">Resturans</mat-option>
+                            <mat-option value="ELECTRICITY">Electricity</mat-option>
+                            <mat-option value="FOOD">Food</mat-option>
+                            <mat-option value="HEALTH">Health</mat-option>
+                            <mat-option value="SPORTS">Sports</mat-option>
+                            <mat-option value="CAMPING">Camping</mat-option>
+                            <mat-option value="TRAVELLING">Travelling</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-md-4" id="priceSearchDiv">
+
+                <label for="searchByPrice">{{'searchByPrice' | translate}}</label>
+                <input class="form-control" type="number" min="1" (input)="searchByPrice(searchbyprice.value)" #searchbyprice [(ngModel)]='defaultPrice'>
+
+            </div>
+
+            <div class="col-md-4" id="dateSearchDiv">
+                <!-- coupon max Date  -->
+                <div class="form-group" id="startDateDiv">
+                    <label for="couponStartDate">{{'startDate' | translate}}</label>
+                    <mat-form-field>
+                        <input matInput class="form-control" id="startDate" [matDatepicker]="dp1" placeholder="choose start Date" disabled readonly
+                            [(ngModel)]='defaultDate' #searchbydate>
+                        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                        <mat-datepicker #dp1 disabled="false"></mat-datepicker>
+                        <input class="btn btn-success" type="button" (click)="searchByDate(searchbydate.value)" value="{{'searchByDate' | translate}}">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <input type="button" class="btn btn-info" value="{{'resetTable' | translate}}" (click)="resetTable()">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-table [dataSource]="dataSource" matSort id="viewAllCouponsMatTable">
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-star"></span>
+                        {{'id' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.id}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-user"></span>
+                        {{'title' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.title}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="startDate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-lock"></span>
+                        {{'startDate' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.startDate}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="endDate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-lock"></span>
+                        {{'endDate' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.endDate}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-lock"></span>
+                        {{'amount' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.amount}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-envelope"> </span>
+                        {{'type' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.type}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="message">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-lock"></span>
+                        {{'message' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.message}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="price">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="glyphicon glyphicon-lock"></span>
+                        {{'price' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon"> {{coupon.price}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="update">
+                    <mat-header-cell *matHeaderCellDef>
+                        <span class="glyphicon glyphicon-refresh"></span>
+                        {{'update' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon" (click)="$event.stopPropagation()">
+                        <button mat-button class="btn btn-info btn-md" (click)="openDialog(coupon)">
+                            <mat-icon>update</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+
+                    <mat-header-cell *matHeaderCellDef>
+                        <span class="glyphicon glyphicon-trash"></span>
+                        {{'delete' | translate}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let coupon" (click)="$event.stopPropagation()">
+                        <button mat-button class="btn btn-danger btn-md" (click)="onDelete(coupon.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"> </mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+            </mat-table>
+
+            <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[1, 10, 25, 100]">
+            </mat-paginator>
+        </div>
+    </div>
+</div>
