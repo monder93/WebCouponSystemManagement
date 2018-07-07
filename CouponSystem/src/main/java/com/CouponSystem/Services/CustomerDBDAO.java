@@ -39,9 +39,9 @@ public class CustomerDBDAO implements CustomerDAO
 
 	//for testing facades and restcontroller , need to reset without value
 	//private int customerId=1;
-	private int customerId=2;
+	//private int customerId=2;
 
-	//private int customerId;
+	private int customerId;
 
 
 	//-----------------------------------------------------------------------------------------------------
